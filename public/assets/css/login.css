@@ -1,0 +1,43 @@
+body{
+    background-size: 300px;
+    background-image:linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)),url(../img/bolsasun.jpeg);
+    
+    
+}
+
+
+.card-title{
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    color: #323232;
+    padding: 15px;
+}
+
+.card{
+    margin-top: calc(50vh - 200px);
+    
+}
+
+.btn_laranja:hover{
+    background: #FAEAEA;
+    border-color: rgb(54, 38, 25);
+    width: 100%;
+    font-size: 18px;
+    
+}
+.btn_laranja{
+    background:#96836b;
+    border-color: rgb(54, 38, 25);
+    width: 100%;
+    font-size: 18px;
+    
+}
+
+.label_login{
+    font-weight: bold;
+    
+}
+
+
+    

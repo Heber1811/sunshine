@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sunshine</title>
+   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+   <link rel="icon" href="assets/img/fato-de-biquini.png" type="image/png">
+   <link rel="stylesheet" href="assets/css/tooplate-main.css">
+   <link rel="stylesheet" href="assets/css/owl.css">
+   <link rel="stylesheet" href="assets/css/estilo.css">
+   <link rel="stylesheet" href="assets/css/fontawesome.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+   <script defer src="/__/firebase/7.16.1/firebase-app.js"></script>
+   <script defer src="/__/firebase/7.16.1/firebase-firestore.js"></script>
+   <script defer src="/__/firebase/7.16.1/firebase-auth.js"></script> 
+   <script defer src="/__/firebase/init.js"></script>
+</head>
+
+<body>
+
+   <div class="back-to-top"></div>
+
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+      <a class="navbar-brand" href="#">
+         <span id="bem_vindo" style="color: #7B8092; font-size: 18px;"></span> 
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
+         <ul class="navbar-nav">
+            <li class="nav-item ">
+               <a class="nav-link  active" href="index.html"><i class="fa fa-home"> </i> INÍCIO</a>
+               </li>
+            <li class="nav-item ">
+               <span class="nav-link btn-logado" style=" display: none; cursor: pointer;  " onclick="$('#modal_cadastro').modal('show')"><i class="fas fa-user"></i> Minha Conta</span>
+               </li>
+            <li class="nav-item ">
+               <span class="nav-link btn-logado" style=" display: none; cursor: pointer;  "  onclick="location.href  = './minhasCompras.html' "><i class="fas fa-list"></i> Minhas Compras</samp>
+               </li>
+            <li class="nav-item">
+               <a class="nav-link" href="contato.html"><i class="fa fa-phone"></i> CONTATO</a>
+            </li>
+            <li class="nav-item ">
+               <a class="nav-link" id="close-image" href="carrinho.html"><img src="assets/img/bolsa1.png"> MINHA SACOLA </a>
+               <span class="sacola qtd-carrinho"> 0</span>
+            </li>
+            <li class="nav-item ">
+               <a class="nav-link" id="" href="#"></a>
+            </li>
+            <li class="nav-item">
+               <a class="navbar-brand" href="#">
+                  <span id="btn-login" class="vindo" data-toggle="modal" data-target="#exampleModal"  style=" cursor: pointer; color: #7B8092; float: right; font-size: 15px;"><i class="fas fa-sign-in-alt"></i> Login</span>
+                  <span class="btn-logado"  style=" display: none;  cursor: pointer; color: #7B8092; font-size: 15px; " onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Encerrar Sessão</span>  
+               </a>
+            </li>
+           
+         
+         </ul>
+      </div>
+   </nav>
+
+  
+   <div id="banner" class="container col col-md-12 ">
+      <div class="row">
+         <div class="logo col col-sm-3 col-12">
+            <a href="index.html"><img class="logo" src="assets/img/logo com biqui1.png" alt=""></a>
+         </div>
+   
+         <div id="menu-menu" class="menu-links d-none d-md-block  ">
+           
+            <div class="dropdown">
+               <button class="dropbtn">biquínis</button>
+               <div class="dropdown-content">
+                  <a href="#"> Cintura Alta</a>
+                  <a href="#"> Fio Dental</a>
+                  <a href="#"> Cropped</a>
+                  <a href="#"> Cortininha</a>
+                  <a href="/busca.html?por=biquini">Parte de cima</a>
+                  <a href="/busca.html?por=biquini">Parte de baixo</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <button class="dropbtn">maiôs</button>
+               <div class="dropdown-content">
+                  <a href="#"> Vazado</a>
+                  <a href="#"> Retrô</a>
+                  <a href="#"> Decote na costas</a>
+                  <a href="#"> Tomara que caia</a>
+                  <a href="/busca.html?por=maio">liso </a>
+                  <a href="/busca.html?por=maio">estampado</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <button class="dropbtn">saídas de praia</button>
+               <div class="dropdown-content">
+                  <a href="#">Calça larga</a>
+                  <a href="#">Saia</a>
+                  <a href="#">Short</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <button class="dropbtn">Fitness</button>
+               <div class="dropdown-content">
+                  <a href="#">Legging</a>
+                  <a href="#">Bermuda</a>
+                  <a href="#">Top</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <button class="dropbtn">kit família</button>
+               <div class="dropdown-content">
+                  <a href="#">Biquíni</a>
+                  <a href="#">Maiô</a>
+                  <a href="#">Sunga</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <a href="busca.html">
+                  <button id="bt" class="dropbtn">Todos Produtos </button>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+   <div class="banner-carousel d-none d-md-block ">
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+         <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+         </ol>
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <img id="foto" src="./assets/img/banner/novaediti3.jpg" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-md-block ">
+                  <h5 id="frase3">Sorriso no rosto ,</h5>
+                  <h5 id="frase4"> sunshine no corpo!</h5>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img id="foto" src="./assets/img/banner/novoedit2.jpg" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-md-block text-left">
+                  <h5 id="frase2">SUNSHINE</h5>
+                  <p id="frase2">valoriza o seu corpo!</p>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img id="foto" src="./assets/img/banner/edit3.jpg" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-md-block ">
+                  <h5 id="frase1">
+                     Não existe corpo certo para entrar<br>
+                     no biquíni , existe o biquíni certo <br> para o seu corpo.
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+         </a>
+         <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+         </a>
+      </div>
+   </div>
+  
+   <div class="featured-items">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="section-heading">
+                  <div class="line-dec"></div>
+                  <h1 class="novidades">Novidades</h1>
+               </div>
+            </div>
+            <div class="col-md-12">
+
+               <div id="novidades_produtos" class="owl-carousel owl-theme"></div>
+
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="featured-items text-center">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="section-heading">
+                  <div>
+                     <a href="busca.html" class="novi">VER MAIS PRODUTOS </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+   <div class="subscribe-form ">
+      <div class="container">
+         <div id="sub-sub" class="row">
+            <div class="col col-md-12">
+               <div class="section-heading">
+                  <h1>Receba nossas ofertas</h1>
+               </div>
+            </div>
+            <div class="col-md-8 offset-md-2">
+               <div class="main-content">
+                  <p>Cadastre seu email!</p>
+                  <div class="container">
+                     <form action="#">
+                        <div class="row">
+                           <div class="col col-sm-7">
+                              <fieldset>
+
+                                 <input id="email_oferta" type="text" name="email" class="form-control"
+                                    onchange="checarEmail();" placeholder="Seu email...">
+
+                              </fieldset>
+                           </div>
+                           <div class="col col-sm-5">
+                              <fieldset>
+                                 <button onclick="salvarEmail()" type="button" id="form-submit"
+                                    class="button">Cadastre!</button>
+                              </fieldset>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+  
+   <div id="footer_pc" class="">
+      <div class="col-12 col-md-12">
+         <div class="row">
+            <div class="col col-md-3 col-12 text-center">
+               <p class="para"> SOBRE A SUNSHINE</p>
+               <a href="sunshine.html" class="sobre"> Sobre A Marca</a>
+            </div>
+            <div class=" col col-md-3 col-12 text-center">
+               <p class="para">ATENDIMENTO </p>
+               <a href="" class="sobre">Devoluções</a>
+               <a href="" class="sobre">Dúvidas Frequentes</a>
+               <a href="tabela.html" class="sobre">Medidas</a>
+            </div>
+            <div class="col col-md-3 col-12   text-center">
+               <p class="para">CONTATO </p>
+               <a href="loja.html" class="sobre">Loja</a>
+               <a href="atacado.html" class="sobre">Atacado</a>
+            </div>
+            <div class="col col-md-3 col-12  text-center">
+               <p class="para">SAC</p>
+               <p class="sobre">
+                  <a href="tel://+5562996160095" class="dados_contato">
+                     <i class="far fa-phone"></i> (62) 99616-0095
+                  </a>
+               </p>
+               <p class="social " >REDES SOCIAIS</p>
+               <div>
+                  <a href="https://wa.me/5562996160095" class="rede" target="_blank">
+                     <i class="fab fa-whatsapp"></i>
+                     <a href="https://www.instagram.com/sunshine_modapraiaa/" class="rede" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                     </a>
+               </div>
+            </div>
+         </div>
+      </div>
+    
+   </div>
+
+   <div id="direitos" class="col col-md-12  col-12 text-center">
+         Todos os direitos reservados @2021! Sunshine
+    </div>
+   
+
+ 
+
+   
+
+  
+   
+   <div id="exampleModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="row " style="padding-top:30px">
+                  <div class="col col-md-5"> 
+                    <div class="form-group">
+                      <label for=""><b>Celular*</b> </label>
+                      <input id="celular-login" type="text" class="form-control ">
+                    </div>
+                    </div>
+                    <div class="col col-md-7" style="padding-top:33px">
+                    <button class="btn btn-dark"   onclick="enviarCodigoCelular()"  style="text-transform:uppercase;" id="enviar-codigo">Enviar código de validção</button>
+                    </div>
+                    <div class="col- col-md-5">
+                      <div class="form-group">
+                        <label for=""><b>Código Recebido*</b></label>
+                        <input id="codigo-login"  class="form-control ">
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button"  class="btn " onclick="validarCodigo()">Validar Código</button>
+            </div>
+          </div>
+         
+        </div>
+   </div>
+    
+   <div id="modal_cadastro" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title">Dados Cadastrais</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body row">
+                 <div class="col col-md-12 col-12">
+                    <div class="form-group">
+                       <label for=""><b>Nome*</b> </label>
+                       <input id="nome" type="text" class="form-control obrigatorio">
+                    </div>
+                 </div>
+                 <div class="col col-md-12 col-12">
+                  <div class="form-group">
+                     <label for=""><b>E-mail de Contato*</b> </label>
+                     <input id="email" type="text" class="form-control obrigatorio">
+                  </div>
+               </div>
+                 <div class="col col-md-6 col-12">
+                    <div class="form-group">
+                       <label for=""><b>CPF*</b> </label>
+                       <input id="cpf" type="text" class="form-control obrigatorio">
+                    </div>
+                 </div>
+                 <div class="col col-md-6 col-12">
+                    <div class="form-group">
+                       <label for=""><b>Data Nascimento*</b> </label>
+                       <input id="data_nascimento" type="date" class="form-control">
+                    </div>
+                 </div>
+                 <div class="col col-md-6 col-12">
+                    <div class="form-group">
+                       <label for=""><b>Celular de Contato*</b> </label>
+                       <input id="celular" type="text" class="form-control">
+                    </div>
+                 </div>
+                
+                 <div class="col col-md-6 col-6">
+                    <div class="form-group">
+                       <label for=""><b>CEP*</b> </label>
+                       <input id="cep" type="text"  class="form-control obrigatorio">
+                    </div>
+                 </div>
+                 <div class="col col-md-8 col-6">
+                    <div class="form-group">
+                       <label for=""><b>Logradouro*</b></label>
+                       <input id="logradouro" type="text" class="form-control obrigatorio">
+                    </div>
+                 </div>
+                 <div class="col col-md-4 col-3">
+                    <div class="form-group">
+                       <label for=""><b>Número</b> </label>
+                       <input id="numero" type="text" class="form-control">
+                    </div>
+                 </div>
+                 <div class="col col-md-12 col-9">
+                    <div class="form-group">
+                       <label for=""><b>Complemento</b> </label>
+                       <input id="complemento" type="text" class="form-control">
+                    </div>
+                 </div>
+                 <div class="col col-md-5 col-12">
+                    <div class="form-group">
+                       <label for=""><b>Bairro*</b> </label>
+                       <input id="bairro" type="text" class="form-control obrigatorio">
+                    </div>
+                 </div>
+                 <div class="col col-md-4 col-6">
+                    <div class="form-group">
+                       <label for=""><b>Cidade*</b> </label>
+                       <input id="cidade" type="text" class="form-control obrigatorio">
+                    </div>
+                 </div>
+                 <div class="col col-md-3 col-6">
+                    <div class="form-group">
+                       <label for=""><b>Estado*</b> </label>
+                       <input id="estado" type="text" class="form-control obrigatorio">
+                    </div>
+                 </div>
+              </div>
+              <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                 <button type="button" class="btn " onclick="salvarCliente()">Salvar Cliente</button>
+              </div>
+           </div>
+        </div>
+   </div>
+    
+  
+  
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   <!-- Additional Scripts -->
+   <script src="assets/js/custom.js"></script>
+   <script src="assets/js/owl.js"></script>
+   <script src="assets/js/isotope.js"></script>
+   <script src="assets/js/flex-slider.js"></script>
+   <script src="assets/js/pagina-inicial.js"></script>
+   <script src="assets/js/ofertas.js"></script>
+   <script src="assets/js/subir.js"></script>
+   <Script src="assets/js/minhasCompras.js"></Script>
+   <script src="assets/js/carrinho.js"></script>
+
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script language="text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t) {                   //declaring the array outside of the
+         if (!cleared[t.id]) {                      // function makes it static and global
+            cleared[t.id] = 1;  // you could use true and false, but that's more typing
+            t.value = '';         // with more chance of typos
+            t.style.color = '#fff';
+         }
+      }
+   </script>
+</body>
+
+</html>

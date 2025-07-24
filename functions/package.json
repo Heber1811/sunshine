@@ -1,0 +1,27 @@
+{
+  "name": "functions",
+  "deion": "Cloud Functions for Firebase",
+  "s": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "10"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "cors": "^2.8.5",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.9",
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}

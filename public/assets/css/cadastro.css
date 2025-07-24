@@ -1,0 +1,309 @@
+body{
+    background: #FAF6F6;
+    margin: 0px;
+}
+
+ .navbar{
+   background: #FAF6F6;
+ }
+
+
+.logo{
+    height: 70px;
+    
+}
+
+a:hover {
+  color: rgb(105, 105, 105);
+  text-decoration: none;
+  background-color: transparent;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #6b5b45fb !important;
+  border-color: #312c25fb !important;
+}
+
+.carregar_imagem{
+  width: 100%;
+  border:  2px solid #8b7e6d;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
+.btn_apaga_foto{
+  border-radius: 50%;
+  border: 2px solid #554939 ;
+  background:  #8b7e6d;
+  color: #fff;
+  position: absolute ;
+  top:-12px; 
+  right: 5px;
+}
+
+#menu{
+  text-align: center;
+  color:#fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+}
+
+.list-group-item:hover{
+  background: #887762;
+  height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  margin: 5px;
+}
+
+.list-group-item{
+  background: #96836B;
+  height: 50px;
+  text-align: center;
+  border-radius: 8px !important;
+  border: 1px solid #fff;
+  margin: 5px;
+}
+
+.pagina{
+  padding: 30px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1
+rem
+;
+    color:#272101;
+}
+
+input[type="file"]{
+  display: none;
+}
+
+
+.btn:hover{
+    background:#96836b;
+    border-color: rgb(54, 38, 25);
+  }
+
+.btn{
+  background:#A99172 ;
+  border-color: rgb(54, 38, 25);
+  
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background:#A99172 ;
+    border-color: rgb(54, 38, 25);
+}
+
+.page-link:hover{
+    background:#96836b;
+    border-color: rgb(54, 38, 25);
+    color: black;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: black;
+    outline: none;
+    
+  
+}
+
+.page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(54, 38, 25 );
+}
+
+
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }
+
+  /* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	
+}
+
+.btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active, .show>.btn-warning.dropdown-toggle {
+  color: #fff;
+  background-color: #96836B !important;
+  border-color: #96836B !important;
+  font-size: 12px !important;
+}
+
+.btn-warning:hover{
+  color: #fff;
+  background: #96836B;
+  border-color: #96836B !important;
+
+ 
+}
+
+.btn-warning {
+  color: #fff;
+  border-color: #96836B !important;
+ 
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #96836B;
+  border-color: #96836B !important;
+}
+
+
+.swal2-icon.swal2-question {
+  border-color: #96836B !important;
+  color: #FBBC04 !important;
+  
+}
+.swal2-styled.swal2-cancel {
+  border: 0;
+  border-radius: 0.25
+em
+;
+  border: 1px solid #96836B !important; 
+  background: initial;
+  background-color: #FBBC04 !important;
+  color: #fff !important;
+  font-size: 1em;
+}
+
+
+.swal2-styled.swal2-confirm{
+  border: 0;
+  border-radius: 0.25
+em
+;
+  border: 1px solid #96836B !important;
+  background: initial;
+  background-color: #96836B !important;
+  color: #fff !important;
+  font-size: 10em;
+}
+
+.btn_swal:hover{
+
+  background: #615444;
+  color: #fff;
+  border: 1px solid #96836B ;
+  border-radius: 5px;
+  height: 40px;
+  padding: 5px;
+}
+
+.btn_swal{
+  background: #96836B;
+  color: #fff;
+  border: 1px solid #96836B ;
+  border-radius: 5px;
+  height: 40px;
+  padding: 5px;
+}
+
+
+/* 
+tabela cadastro 
+*/
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #FAF6F6; 
+}
+th {
+  background: #96836B!important;
+  color: white;
+  font-weight: bold;
+}
+d, th { 
+  padding: 6px; 
+  border: 1px solid #FAF6F6; 
+  text-align: left; 
+}
+
+/* 

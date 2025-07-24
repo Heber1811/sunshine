@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sunshine</title>
+   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+   <link rel="icon" href="assets/img/fato-de-biquini.png" type="image/png">
+   <link rel="stylesheet" href="assets/css/tooplate-main.css">
+   <link rel="stylesheet" href="assets/css/owl.css">
+   <link rel="stylesheet" href="assets/css/estilo.css">
+   <link rel="stylesheet" href="assets/css/fontawesome.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+   <script defer src="/__/firebase/7.16.1/firebase-app.js"></script>
+   <script defer src="/__/firebase/7.16.1/firebase-firestore.js"></script>
+   <script defer src="/__/firebase/7.16.1/firebase-auth.js"></script> 
+   <script defer src="/__/firebase/init.js"></script>
+</head>
+
+<body>
+
+   <div class="back-to-top"></div>
+
+
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+      <a class="navbar-brand" href="#">
+         <span id="bem_vindo" style="color: #7B8092; font-size: 18px;"></span> 
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
+         <ul class="navbar-nav">
+            <li class="nav-item ">
+               <a class="nav-link" href="index.html"><i class="fa fa-home"> </i> INÍCIO</a>
+               </li>
+            <li class="nav-item ">
+               <span class="nav-link btn-logado" style=" display: none; cursor: pointer;  " onclick="$('#modal_cadastro').modal('show')"><i class="fas fa-user"></i> Minha Conta</span>
+               </li>
+            <li class="nav-item ">
+               <span class="nav-link btn-logado" style=" display: none; cursor: pointer;  "  onclick="location.href  = './minhasCompras.html' "><i class="fas fa-list"></i> Minhas Compras</samp>
+               </li>
+            <li class="nav-item">
+               <a class="nav-link" href="contato.html"><i class="fa fa-phone"></i> CONTATO</a>
+            </li>
+            <li class="nav-item ">
+               <a class="nav-link" id="close-image" href="carrinho.html"><img src="assets/img/bolsa1.png"> MINHA SACOLA </a>
+               <span class="sacola qtd-carrinho"> 0</span>
+            </li>
+            <li class="nav-item ">
+               <a class="nav-link" id="" href="#"></a>
+            </li>
+            <li class="nav-item">
+               <a class="navbar-brand" href="#">
+                  <span id="btn-login" class="vindo" data-toggle="modal" data-target="#exampleModal"  style=" cursor: pointer; color: #7B8092; float: right; font-size: 15px;"><i class="fas fa-sign-in-alt"></i> Login</span>
+                  <span class="btn-logado"  style=" display: none;  cursor: pointer; color: #7B8092; font-size: 15px; " onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Encerrar Sessão</span>  
+               </a>
+            </li>
+           
+         
+         </ul>
+      </div>
+   </nav>
+   <div id="banner" class="container col-md-12">
+      <div class="row">
+         <div class="logo">
+            <a href="index.html"><img class="logo" src="assets/img/logo com biqui1.png" alt=""></a>
+         </div>
+      </div>
+   </div>
+   <br>
+   <br>
+   <div class="contact-page">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="section-heading">
+                  <h1 class="letra">TABELA DE MEDIDAS</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+   <br>
+   <table class="tab container table table-bordered table-dark col-md-7 d-none d-sm-block">
+
+     
+
+      <tbody>
+         <th class="col col-md-3 -col-12"> COMO  MEDIR</th>
+         
+         <tr>
+            <th scope="col">1. BUSTO</th> 
+            <td>CONTORNAR O BUSTO PASSANDO PELA ALTURA DO SEIO. A FITA DEVE ESTAR FOLGADA.</td>
+         <tr>
+            <th scope="row">2. TORAX</th>
+            <td>CONTORNAR SOB O BUSTO. PASSANDO PELAS COSTAS E LOGA ABAIXO DOS SEIOS.</td>
+         </tr>
+         <tr>
+            <th scope="row">3. CINTURA</th>
+            <td>COLOCAR A FITA NA PARTE MAIS FINA DA CINTURA</td>
+         </tr>
+         <tr>
+            <th scope="row">4. QUADRIL</th>
+            <td>CONTORNAR NA PARTE DO QUADRIL COM A MAIOR CIRCUNFERÊNCIA.</td>
+         </tr>
+      </tbody>
+   </table>
+   <table class="tab container table table-bordered table-dark  col-10 col-md-12  d-block d-sm-none ">
+      <thead>
+         <th scope="col">COMO MEDIR</th>
+         <tr>
+            <th scope="col">1. BUSTO</th>
+         </tr>
+         <td scope="col">CONTORNAR O BUSTO PASSANDO PELA ALTURA DO SEIO. A FITA DEVE ESTAR FOLGADA.</td>
+      </thead>
+      <tbody>
+         <tr>
+            <th scope="row">2. TORAX</th>
+         </tr>
+         <td>CONTORNAR SOB O BUSTO. PASSANDO PELAS COSTAS E LOGA ABAIXO DOS SEIOS.</td>
+         <tr>
+            <th scope="row">3. CINTURA</th>
+         </tr>
+         <td>COLOCAR A FITA NA PARTE MAIS FINA DA CINTURA</td>
+         <tr>
+            <th scope="row">4. QUADRIL</th>
+         </tr>
+         <td>CONTORNAR NA PARTE DO QUADRIL COM A MAIOR CIRCUNFERÊNCIA.</td>
+      </tbody>
+   </table>
+   <br>
+   <br>
+   <table class="tabela container table table-bordered col-md-8  ">
+      <thead>
+         <tr class="letra" style="text-align: center;">
+            <th scope="col">MEDIDAS</th>
+            <th scope="col">P</th>
+            <th scope="col">M</th>
+            <th scope="col">G</th>
+            <th scope="col">GG</th>
+         </tr>
+      </thead>
+      <tbody>
+         <th scope="row"><b class="letra">TOP</b> </th>
+         <tr class="letra">
+            <th class="letra" scope="row">Busto</th>
+            <td>80 A 86</td>
+            <td>86 A 92</td>
+            <td>92 A 98</td>
+            <td>98 A 104</td>
+         </tr>
+         <tr class="letra">
+            <th class="letra" scope="row">Torax</th>
+            <td>66 A 72</td>
+            <td>72 a 78</td>
+            <td>78 A 84</td>
+            <td>84 A 90</td>
+         </tr>
+         <th scope="row"><b class="letra">Calcinha</b> </th>
+         <tr class="letra">
+            <th class="letra" scope="row">Cintura</th>
+            <td>68 A 72</td>
+            <td>72 A 76</td>
+            <td>76 A 80</td>
+            <td>80 A 84</td>
+         </tr>
+         <tr class="letra">
+            <th class="letra" scope="row">Quadril</th>
+            <td>92 A 98</td>
+            <td>98 A 104</td>
+            <td>104 A 110</td>
+            <td>110 A 116</td>
+         </tr>
+      </tbody>
+   </table>
+  
+   <div id="footer_pc" class="">
+      <div class="col-12 col-md-12">
+         <div class="row">
+            <div class="col col-md-3 col-12 text-center">
+               <p class="para"> SOBRE A SUNSHINE</p>
+               <a href="sunshine.html" class="sobre"> Sobre A Marca</a>
+            </div>
+            <div class=" col col-md-3 col-12 text-center">
+               <p class="para">ATENDIMENTO </p>
+               <a href="" class="sobre">Devoluções</a>
+               <a href="" class="sobre">Dúvidas Frequentes</a>
+               <a href="tabela.html" class="sobre">Medidas</a>
+            </div>
+            <div class="col col-md-3 col-12   text-center">
+               <p class="para">CONTATO </p>
+               <a href="loja.html" class="sobre">Loja</a>
+               <a href="atacado.html" class="sobre">Atacado</a>
+            </div>
+            <div class="col col-md-3 col-12  text-center">
+               <p class="para">SAC</p>
+               <p class="sobre">
+                  <a href="tel://+5562996160095" class="dados_contato">
+                     <i class="far fa-phone"></i> (62) 99616-0095
+                  </a>
+               </p>
+               <p class="social " >REDES SOCIAIS</p>
+               <div>
+                  <a href="https://wa.me/5562996160095" class="rede" target="_blank">
+                     <i class="fab fa-whatsapp"></i>
+                     <a href="https://www.instagram.com/sunshine_modapraiaa/" class="rede" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                     </a>
+               </div>
+            </div>
+         </div>
+      </div>
+    
+   </div>
+
+   <div id="direitos" class="col col-md-12  col-12 text-center">
+         Todos os direitos reservados @2021! Sunshine
+    </div>
+
+    <div id="exampleModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="row " style="padding-top:30px">
+                  <div class="col col-md-5"> 
+                  <div class="form-group">
+                     <label for=""><b>Celular*</b> </label>
+                     <input id="celular-login" type="text" class="form-control ">
+                  </div>
+                  </div>
+                  <div class="col col-md-7" style="padding-top:33px">
+                  <button class="btn btn-dark"   onclick="enviarCodigoCelular()"  style="text-transform:uppercase;" id="enviar-codigo">Enviar código de validção</button>
+                  </div>
+                  <div class="col- col-md-5">
+                     <div class="form-group">
+                        <label for=""><b>Código Recebido*</b></label>
+                        <input id="codigo-login"  class="form-control ">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button"  class="btn " onclick="validarCodigo()">Validar Código</button>
+            </div>
+         </div>
+         
+      </div>
+    </div>   
+    
+    <div id="modal_cadastro" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title">Dados Cadastrais</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body row">
+               <div class="col col-md-12 col-12">
+                  <div class="form-group">
+                     <label for=""><b>Nome*</b> </label>
+                     <input id="nome" type="text" class="form-control obrigatorio">
+                  </div>
+               </div>
+               <div class="col col-md-12 col-12">
+                <div class="form-group">
+                   <label for=""><b>E-mail de Contato*</b> </label>
+                   <input id="email" type="text" class="form-control obrigatorio">
+                </div>
+             </div>
+               <div class="col col-md-6 col-12">
+                  <div class="form-group">
+                     <label for=""><b>CPF*</b> </label>
+                     <input id="cpf" type="text" class="form-control obrigatorio">
+                  </div>
+               </div>
+               <div class="col col-md-6 col-12">
+                  <div class="form-group">
+                     <label for=""><b>Data Nascimento*</b> </label>
+                     <input id="data_nascimento" type="date" class="form-control">
+                  </div>
+               </div>
+               <div class="col col-md-6 col-12">
+                  <div class="form-group">
+                     <label for=""><b>Celular de Contato*</b> </label>
+                     <input id="celular" type="text" class="form-control">
+                  </div>
+               </div>
+              
+               <div class="col col-md-6 col-6">
+                  <div class="form-group">
+                     <label for=""><b>CEP*</b> </label>
+                     <input id="cep" type="text"  class="form-control obrigatorio">
+                  </div>
+               </div>
+               <div class="col col-md-8 col-6">
+                  <div class="form-group">
+                     <label for=""><b>Logradouro*</b></label>
+                     <input id="logradouro" type="text" class="form-control obrigatorio">
+                  </div>
+               </div>
+               <div class="col col-md-4 col-3">
+                  <div class="form-group">
+                     <label for=""><b>Número</b> </label>
+                     <input id="numero" type="text" class="form-control">
+                  </div>
+               </div>
+               <div class="col col-md-12 col-9">
+                  <div class="form-group">
+                     <label for=""><b>Complemento</b> </label>
+                     <input id="complemento" type="text" class="form-control">
+                  </div>
+               </div>
+               <div class="col col-md-5 col-12">
+                  <div class="form-group">
+                     <label for=""><b>Bairro*</b> </label>
+                     <input id="bairro" type="text" class="form-control obrigatorio">
+                  </div>
+               </div>
+               <div class="col col-md-4 col-6">
+                  <div class="form-group">
+                     <label for=""><b>Cidade*</b> </label>
+                     <input id="cidade" type="text" class="form-control obrigatorio">
+                  </div>
+               </div>
+               <div class="col col-md-3 col-6">
+                  <div class="form-group">
+                     <label for=""><b>Estado*</b> </label>
+                     <input id="estado" type="text" class="form-control obrigatorio">
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+               <button type="button" class="btn " onclick="salvarCliente()">Salvar Cliente</button>
+            </div>
+         </div>
+      </div>
+ </div>
+  
+   
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Additional Scripts -->
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="assets/js/contato.js"></script>
+   <script src="assets/js/contato1.js"></script>
+   <script src="assets/js/ofertas.js"></script>
+   <script src="assets/js/subir.js"></script>
+   <script src="assets/js/carrinho.js"></script>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+     crossorigin="anonymous">
+   </script>
+</body>
+
+</html>
